@@ -2,63 +2,158 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background-color: #f2f2f2;
-    color: #333;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
 }
 
 header {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #003366, #001122);
     color: #fff;
     text-align: center;
-    padding: 20px 0;
-    margin: 0 auto;
+    padding: 50px 20px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 16px;
+header h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+header h1::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="10" cy="10" r="2" fill="%23ffffff" opacity="0.2"/><circle cx="50" cy="80" r="1.5" fill="%23ffffff" opacity="0.2"/><circle cx="120" cy="30" r="1" fill="%23ffffff" opacity="0.2"/></svg>');
+    background-repeat: repeat;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+#carousel-imagens {
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+#carousel-imagens img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    margin-top: 30px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
 }
 
 .form-campo {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-campo label {
+    color: #fff;
+    font-size: 1.1em;
+    margin-bottom: 8px;
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
 }
 
 .form-campo input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
     border-radius: 5px;
+    padding: 12px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-campo input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-campo input:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
 .container button {
     background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+    color: #fff;
+    padding: 15px 30px;
     border: none;
-    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1em;
     font-weight: bold;
-    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
 }
 
-.error {
-    color: red
+.container button:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
+
+label.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+input.error {
+    border-color: red !important;
 }
